@@ -131,33 +131,33 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputEmail4">Name</label>
-      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Name">
+      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Name" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password" required>
     </div>
   </div>
   <div class="form-group">
     <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St" required>
   </div>
   <div class="form-group">
     <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" name="address2" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <input type="text" class="form-control" name="address2" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">City</label>
-      <input type="text" name="city" class="form-control" id="inputCity">
+      <input type="text" name="city" class="form-control" id="inputCity" required>
     </div>
     <div class="form-group col-md-4">
       <label for="inputState">Age Group</label>
-      <select id="inputState" name="age" class="form-control">
+      <select id="inputState" name="age" class="form-control" required>
 	  	<option selected>Under 18</option>
         <option selected>18 -25</option>
         <option>25 - 35</option>
@@ -168,13 +168,13 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputZip">Contact</label>
-      <input type="text" class="form-control" name="contact" id="inputZip">
+      <input type="text" class="form-control" name="contact" id="inputZip" required>
     </div>
   </div>  
   <button type="submit" name="signup" class="btn btn-primary">Sign Up</button>
-  <button type="submit" class="btn btn-primary">Clear Form</button>
+  
 </form>
-</
+
 
 </body>
 </html>
