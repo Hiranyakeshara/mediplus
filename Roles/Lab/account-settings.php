@@ -139,7 +139,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 							<ul class="dropdown-menu" aria-labelledby="pagesDropdown">
 							
 								<li>
-									<a class="dropdown-item" href="hostpital-reports.php">Reports</a>
+									<a class="dropdown-item" href="hospital-reports.php">Reports</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="my-reports.php">My Reports</a>
@@ -207,6 +207,7 @@ $result = $con->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
+	$l_id = $row['l_id'];
     $email = $row['email'];
 	$name=$row['fullname'];
 	$qualification = $row['qualification'];
@@ -228,6 +229,10 @@ if ($result->num_rows > 0) {
 								<div class="card-body">
 									<div class="row gutters">
 										<div class=col-sm-6 col-12">
+										<div class="form-group">
+												<label for="fullName">Lab Technical ID :</label>
+												<?php echo $l_id; ?>
+											</div>
 											<div class="form-group">
 												<label for="fullName">Full Name :</label>
 												<?php echo $name; ?>
