@@ -90,8 +90,8 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 											
 											<p><?php echo $_SESSION['SESSION_USERNAME']; ?></p>
 										</div>
-										<a href="hospital-add-doctor.html"><i class="icon-user1"></i> My Profile</a>
-										<a href="login.html"><i class="icon-log-out1"></i> Sign Out</a>
+										<a href="account-settings.php"><i class="icon-user1"></i> My Profile</a>
+										<a href="logout.php"><i class="icon-log-out1"></i> Sign Out</a>
 									</div>
 								</div>
 							</li>
