@@ -27,14 +27,14 @@
           // header section end
           require "php/db_connection.php";
           if($con) {
-            $query = "SELECT * FROM admin_credentials";
+            $query = "SELECT * FROM pharmacy";
             $result = mysqli_query($con, $query);
             $row = mysqli_fetch_array($result);
-            $pharmacy_name = $row['PHARMACY_NAME'];
-            $address = $row['ADDRESS'];
-            $email = $row['EMAIL'];
-            $contact_number = $row['CONTACT_NUMBER'];
-            $username = $row['USERNAME'];
+            $pharmacist_name = $row['fullname'];
+            $address = $row['address'];
+            $email = $row['email'];
+            $bio = $row['bio'];
+            $username = $row['username'];
           }
         ?>
         <div class="row">
@@ -43,7 +43,7 @@
             <div class="row col col-md-12">
               <div class="col col-md-12 form-group">
                 <label class="font-weight-bold" for="pharmacy_name">Pharmacy Name :</label>
-                <input id="pharmacy_name" type="text" class="form-control" value="<?php echo $pharmacy_name; ?>" placeholder="pharmacy name" onkeyup="validateName(this.value, 'pharmacy_name_error');" disabled>
+                <input id="pharmacist_name" type="text" class="form-control"  value="<?php echo $pharmacist_name; ?>" placeholder="pharmacy name" onkeyup="validateName(this.value, 'pharmacy_name_error');" disabled>
                 <code class="text-danger small font-weight-bold float-right mb-2" id="pharmacy_name_error" style="display: none;"></code>
               </div>
             </div>
@@ -66,8 +66,8 @@
 
             <div class="row col col-md-12">
               <div class="col col-md-12 form-group">
-                <label class="font-weight-bold" for="contact_number">Contact Number :</label>
-                <input id="contact_number" type="number" class="form-control" value="<?php echo $contact_number; ?>" placeholder="contact number" onkeyup="validateContactNumber(this.value, 'contact_number_error');" disabled>
+                <label class="font-weight-bold" for="contact_number">Bio :</label>
+                <input id="contact_number" type="number" class="form-control" value="<?php echo $bio; ?>" placeholder="Biography" onkeyup="validateContactNumber(this.value, 'contact_number_error');" disabled>
                 <code class="text-danger small font-weight-bold float-right mb-2" id="contact_number_error" style="display: none;"></code>
               </div>
             </div>
