@@ -1,17 +1,43 @@
 <?php
-include("./db/config.php");
 session_start();
 
 if (isset($_SESSION['SESSION_USERNAME'])) {
     // User is logged in
+    $username = $_SESSION['SESSION_USERNAME'];
 
+    // Database connection
+    $db_host = "localhost";
+    $db_user = "root";
+    $db_pass = "";
+    $db_name = "medi";
+
+    $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+    if ($con->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Retrieve user id from the database
+    $result = $con->query("SELECT l_id FROM lab_technisian WHERE l_username = '$username'");
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $loggedUserId = $row['l_id'];
+    } else {
+        // Handle the case when the user is not found in the database
+        echo "Error: User not found in the database.";
+        exit();
+    }
+
+    $con->close();
 } else {
     // User is not logged in
     echo "User is not logged in";
     header("Location: ./login.php");
+    exit();
 }
-?>
 
+?>
 
 <!doctype html>
 <html lang="en">
@@ -210,7 +236,7 @@ $db_name = "medi";
 
 
  $current_lab = $_SESSION['SESSION_USERNAME'];
- $sql = "SELECT *FROM files WHERE upload = '$current_lab' ";
+ $sql = "SELECT *FROM files WHERE upload = '$loggedUserId' ";
  $result = $conn->query($sql);
 
 ?>
@@ -250,7 +276,10 @@ $db_name = "medi";
                             <td><?php echo $row['filesize']; ?> bytes</td>
                             <td><?php echo $row['filetype']; ?></td>
                             <td><a href="<?php echo $file_path; ?>" class="btn btn-primary" download>Download</a></td>
-							<td><a href="<?php  ?>" class="btn btn-danger" download>Delete</a></td>
+							<td>  <form method="POST" action="">
+                                <input type="hidden" name="r_id" value="<?php echo $row['r_id']; ?>">
+                                <button type="button" class="btn btn-danger" onclick="confirmDelete(this)">Delete</button>
+                            </form></td>
                         </tr>
                         <?php
                     }
@@ -266,6 +295,32 @@ $db_name = "medi";
         </table>
     </div>
 
+	<!-- Add JavaScript to handle delete confirmation -->
+<script>
+    function confirmDelete(button) {
+        if (confirm("Are you sure you want to delete this file?")) {
+            // Get the associated form and submit it
+            var form = button.closest('form');
+            form.submit();
+        }
+    }
+</script>
+<?php
+// Check if a delete request is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["r_id"])) {
+    $r_id = $_POST["r_id"];
+
+    // Perform the deletion in the database
+    $deleteSql = "DELETE FROM files WHERE r_id = '$r_id'";
+    if ($conn->query($deleteSql) === TRUE) {
+        echo "File deleted successfully!";
+        // You can redirect to the same page or another page after deletion
+        // header("Location: your_page.php");
+    } else {
+        echo "Error deleting file: " . $conn->error;
+    }
+}
+?>
 
 <?php
 $conn->close();
