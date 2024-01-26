@@ -66,32 +66,9 @@
 	
 		<!-- Header Area -->
 		<header class="header" >
-			<!-- Topbar -->
-			<div class="topbar">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-5 col-12">
-							<!-- Contact -->
-							<ul class="top-link">
-								<li><a href="#">About</a></li>
-								<li><a href="#">Doctors</a></li>
-								<li><a href="#">Contact</a></li>
-								<li><a href="#">FAQ</a></li>
-							</ul>
-							<!-- End Contact -->
-						</div>
-						<div class="col-lg-6 col-md-7 col-12">
-							<!-- Top Contact -->
-							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>+94 1234 56789</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:help@mediplus.com">help@mediplus.com</a></li>
-							</ul>
-							<!-- End Top Contact -->
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- End Topbar -->
+			
+	
+			
 			<!-- Header Inner -->
 			<div class="header-inner">
 				<div class="container">
@@ -112,11 +89,8 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
-												<ul class="dropdown">
-													<li><a href="patient_register.php">Register</a></li>
-													<li><a href="patient_dashbaord.php">Login Patient</a></li>
-												</ul>
+											<li class="active"><a href="index.php">Home </a>
+										
 											</li>
 											<li><a href="#">Doctors</a></li>
 											<li><a href="#">Services </a></li>
@@ -147,8 +121,9 @@
   <h1 class="display-5">Register!</h1>
   <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="patient_login.php" role="button">Login</a>
+  <p>If you Already have an Account Please login from here.</p>
+  <a class="btn" href="patient_login.php" style="color: white;">Login</a>
+
 </div>
 
 <div class="container mt-3>">
@@ -160,7 +135,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputEmail4">Name</label>
-      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Email">
+      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Name">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
@@ -183,6 +158,7 @@
     <div class="form-group col-md-4">
       <label for="inputState">Age Group</label>
       <select id="inputState" name="age" class="form-control">
+	  	<option selected>Under 18</option>
         <option selected>18 -25</option>
         <option>25 - 35</option>
         <option>35 - 45</option>

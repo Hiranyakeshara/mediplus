@@ -27,6 +27,29 @@ $patientname =  $_SESSION['SESSION_USERNAME'];
     <a class="btn btn-warning" href="view_lab.php">View Lab Reports</a> 
     <a class="btn btn-secondary" href="view_history.php">View Previous Appointments</a> 
   </div>
+  <br>
+  <?php
+  include('./db/config.php');
+    $query ="SELECT * FROM appointments WHERE patient ='$patientname' ";
+    $sql = mysqli_query($con,$query);
+    while($row = mysqli_fetch_array($sql))
+    {  ?>
+  
+  <div class="card">
+  <div class="card-header">
+    Doctor ID: <?php echo $row['doctor'] ?>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $row['date']; ?></h5>
+    <p class="card-text"><?php echo $row['time_slot']; ?></p>
+  </div>
+</div>
+
+<br>
+
+<?php } ?>
+
+
 
 
 

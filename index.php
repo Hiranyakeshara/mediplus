@@ -66,30 +66,7 @@
 		<!-- Header Area -->
 		<header class="header" >
 			<!-- Topbar -->
-			<div class="topbar">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-5 col-12">
-							<!-- Contact -->
-							<ul class="top-link">
-								<li><a href="#">About</a></li>
-								<li><a href="#">Doctors</a></li>
-								<li><a href="#">Contact</a></li>
-								<li><a href="#">FAQ</a></li>
-							</ul>
-							<!-- End Contact -->
-						</div>
-						<div class="col-lg-6 col-md-7 col-12">
-							<!-- Top Contact -->
-							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>+94 1234 56789</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:help@mediplus.com">help@mediplus.com</a></li>
-							</ul>
-							<!-- End Top Contact -->
-						</div>
-					</div>
-				</div>
-			</div>
+	
 			<!-- End Topbar -->
 			<!-- Header Inner -->
 			<div class="header-inner">
@@ -111,11 +88,8 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
-												<ul class="dropdown">
-													<li><a href="patient_register.php">Register</a></li>
-													<li><a href="patient_dashbaord.php">Login Patient</a></li>
-												</ul>
+											<li class="active"><a href="index.php">Home </i></a>
+												
 											</li>
 											<li><a href="#">Doctors</a></li>
 											<li><a href="#">Services </a></li>
@@ -153,7 +127,7 @@
 									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
 									<p>MediPlus: Your Health, Our Priority – Connecting Care Online </p>
 									<div class="button">
-										<a href="patient_register.php" class="btn">Register  </a>
+									
 										<a href="patient_login.php" class="btn primary">Book an Appointment</a>
 									</div>
 								</div>
@@ -171,7 +145,7 @@
 									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
 									<p>MediPlus: Your Health, Our Priority – Connecting Care Online</p>
 									<div class="button">
-										<a href="patient_register.php" class="btn">Register</a>
+										
 										<a href="patient_login.php"] class="btn primary">Book an Appointment</a>
 									</div>
 								</div>
@@ -189,7 +163,7 @@
 									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
 									<p>MediPlus: Your Health, Our Priority – Connecting Care Online </p>
 									<div class="button">
-										<a href="patient_register.php" class="btn">Register</a>
+									
 										<a href="patient_login.php" class="btn primary">Book an Appointment</a>
 									</div>
 								</div>
@@ -218,7 +192,7 @@
 										<span>How to Handle Emergency cases</span>
 										<h4>Emergency Cases</h4>
 										<p>At MediPlus, we understand that emergencies demand swift and efficient healthcare responses.</p>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+										
 									</div>
 								</div>
 							</div>
@@ -234,7 +208,7 @@
 										<span>Fusce Porttitor</span>
 										<h4>Doctors Timetable</h4>
 										<p>At MediPlus, we prioritize the convenience of our users and maintain a flexible and accessible timetable for our team of experienced doctors..</p>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+									
 									</div>
 								</div>
 							</div>
@@ -254,7 +228,7 @@
 
 											
 										</ul>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+										
 									</div>
 								</div>
 							</div>
@@ -316,58 +290,6 @@
 		</section>
 		<!--/ End Feautes -->
 		
-		<!-- Start Fun-facts -->
-		<div id="fun-facts" class="fun-facts section overlay">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-3 col-md-6 col-12">
-						<!-- Start Single Fun -->
-						<div class="single-fun">
-							<i class="icofont icofont-home"></i>
-							<div class="content">
-								<span class="counter">3468</span>
-								<p>Hospital Rooms</p>
-							</div>
-						</div>
-						<!-- End Single Fun -->
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<!-- Start Single Fun -->
-						<div class="single-fun">
-							<i class="icofont icofont-user-alt-3"></i>
-							<div class="content">
-								<span class="counter">557</span>
-								<p>Specialist Doctors</p>
-							</div>
-						</div>
-						<!-- End Single Fun -->
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<!-- Start Single Fun -->
-						<div class="single-fun">
-							<i class="icofont-simple-smile"></i>
-							<div class="content">
-								<span class="counter">4379</span>
-								<p>Happy Patients</p>
-							</div>
-						</div>
-						<!-- End Single Fun -->
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<!-- Start Single Fun -->
-						<div class="single-fun">
-							<i class="icofont icofont-table"></i>
-							<div class="content">
-								<span class="counter">32</span>
-								<p>Years of Experience</p>
-							</div>
-						</div>
-						<!-- End Single Fun -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--/ End Fun-facts -->
 		
 		<!-- Start Why choose -->
 		<section class="why-choose section" >
@@ -411,16 +333,8 @@
 						<!-- Start Choose Rights -->
 						<div class="choose-right">
 							<div class="video-image">
-								<!-- Video Animation -->
-								<div class="promo-video">
-									<div class="waves-block">
-										<div class="waves wave-1"></div>
-										<div class="waves wave-2"></div>
-										<div class="waves wave-3"></div>
-									</div>
-								</div>
-								<!--/ End Video Animation -->
-								<a href="https://www.youtube.com/watch?v=RFVXy6CRVR4" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
+							
+								
 							</div>
 						</div>
 						<!-- End Choose Rights -->

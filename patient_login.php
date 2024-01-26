@@ -18,7 +18,7 @@ session_start();
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- Title -->
-        <title>Mediplus - Free Medical and Doctor Directory HTML Template.</title>
+        <title>Mediplus</title>
 		
 		<!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
@@ -74,30 +74,7 @@ session_start();
 		<!-- Header Area -->
 		<header class="header" >
 			<!-- Topbar -->
-			<div class="topbar">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-5 col-12">
-							<!-- Contact -->
-							<ul class="top-link">
-								<li><a href="#">About</a></li>
-								<li><a href="#">Doctors</a></li>
-								<li><a href="#">Contact</a></li>
-								<li><a href="#">FAQ</a></li>
-							</ul>
-							<!-- End Contact -->
-						</div>
-						<div class="col-lg-6 col-md-7 col-12">
-							<!-- Top Contact -->
-							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>+880 1234 56789</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">help@mediplus.com</a></li>
-							</ul>
-							<!-- End Top Contact -->
-						</div>
-					</div>
-				</div>
-			</div>
+	
 			<!-- End Topbar -->
 			<!-- Header Inner -->
 			<div class="header-inner">
@@ -119,11 +96,8 @@ session_start();
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
-												<ul class="dropdown">
-													<li><a href="patient_register.php">Register</a></li>
-													<li><a href="patient_dashbaord.php">Login Patient</a></li>
-												</ul>
+											<li class="active"><a href="index.php">Home</a>
+											
 											</li>
 											<li><a href="#">Doctors</a></li>
 											<li><a href="#">Services </a></li>
@@ -198,6 +172,7 @@ session_start();
 								</form>
 								<!--/ End Form -->
 							</div>
+							<p>Don't Have and Account ? Register <a href="./patient_register.php"><b>HERE</b></a></p>
 						</div>
 					</div>
 				</div>
