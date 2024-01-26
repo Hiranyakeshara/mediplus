@@ -92,8 +92,8 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 										
 											<p><?php echo $_SESSION['SESSION_USERNAME']; ?></p>
 										</div>
-										<a href="hospital-add-doctor.html"><i class="icon-user1"></i> My Profile</a>
-										<a href="login.html"><i class="icon-log-out1"></i> Sign Out</a>
+										<a href="account-settings.php"><i class="icon-user1"></i> My Profile</a>
+										<a href="logout.php"><i class="icon-log-out1"></i> Sign Out</a>
 									</div>
 								</div>
 							</li>
@@ -165,9 +165,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 								<li>
 									<a class="dropdown-item" href="hospital-add-lab.php">Add Lab Technisian</a>
 								</li>
-								<li>
-									<a class="dropdown-item" href="hospital-add-patient.php">Add Patient</a>
-								</li>
+								
 							</ul>
 						</li>
 
@@ -187,9 +185,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 								<li>
 									<a class="dropdown-item" href="reports.php">Reports</a>
 								</li>
-								<li>
-									<a class="dropdown-item" href="prescription.php">Prescriptions</a>
-								</li>
+								
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
@@ -201,9 +197,6 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="loginDropdown">
 								<li>
 									<a class="dropdown-item" href="login.php">Login</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="signup.php">Signup</a>
 								</li>
 							
 							</ul>
@@ -276,11 +269,24 @@ if ($result->num_rows > 0) {
 								<h2><?php echo $patientCount; ?></h2>
 							</div>
 						</div>
+						<?php
+     include("db/config.php");  
+  	 $sql = "SELECT COUNT(*) AS report_count FROM files";
+	$result = $con->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $reportCount = $row['report_count'];
+} else {
+    $reportCount = 0;
+}
+
+?> 
 						<div class="col-lg-2 col-sm-4 col-12">
 							<div class="hospital-tiles">
 								<img src="img/hospital/operation.svg" alt="Best Dashboards" />
 								<p>Pending Reports</p>
-								<h2>21</h2>
+								<h2><?php echo $reportCount ?></h2>
 							</div>
 						</div>
    <?php
