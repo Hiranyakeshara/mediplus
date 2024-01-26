@@ -217,9 +217,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item active">Hospital Dashboard</li>
 					</ol>
-					<div class="site-award">
-						<img src="img/award.svg" alt="Hospital Dashboards"> Best Hospital
-					</div>
+				
 				</div>
 				<!-- Page header end -->
 				<!-- Page header end -->
@@ -306,7 +304,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 				************ Main container end *************
 			************* -->
 
-			<footer class="main-footer">© Bootstrap Gallery 2023</footer>
+			<footer class="main-footer"></footer>
 
 		</div>
 

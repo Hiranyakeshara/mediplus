@@ -25,7 +25,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 		<link rel="shortcut icon" href="img/favicon.svg" />
 
 		<!-- Title -->
-		<title>Medical Admin Template - Hospital Patients</title>
+		<title>Mediplus</title>
 
 
 		<!-- *************

@@ -217,9 +217,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item active">Hospital Dashboard</li>
 					</ol>
-					<div class="site-award">
-						<img src="img/award.svg" alt="Hospital Dashboards"> Best Hospital
-					</div>
+				
 				</div>
 				<!-- Page header end -->
 		<!-- Header end -->
