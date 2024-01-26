@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 		<link rel="shortcut icon" href="img/favicon.svg" />
 
 		<!-- Title -->
-		<title>Medical Admin Template - Login</title>
+		<title>Mediplus</title>
 
 		<!-- *************
 			************ Common Css Files *************
@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
 								</div>
 								<div class="actions">
 								
-									<button type="submit" name="" class="btn btn-info">Login</button>
+									<button type="submit" name="submit" class="btn btn-info">Login</button>
 								</div>
 								<hr>
 								<div class="m-0">
