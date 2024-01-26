@@ -149,7 +149,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 									<a class="dropdown-item" href="hospital-appointments.php">Appointments</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="lab-reports.php">Reports</a>
+									<a class="dropdown-item" href="hospital-lab-reports.php">Reports</a>
 								</li>
 							</ul>
 						</li>

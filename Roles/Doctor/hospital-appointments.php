@@ -31,7 +31,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 		<link rel="shortcut icon" href="img/favicon.svg" />
 
 		<!-- Title -->
-		<title>MediPlus - Admin</title>
+		<title>MediPlus</title>
 
 
 		<!-- *************
@@ -64,7 +64,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 					<div class="col-sm-4 col-4">
 					<a href="index.html" class="logo">Medi<span>Plus</span></a>
 						<a href="index.html" class="logo"><span>-</span></a>
-						<a href="index.html" class="logo"><span>admin</span></a>
+						<a href="index.html" class="logo"><span>Doctor</span></a>
 					</div>
 					<div class="col-sm-8 col-8">
 
@@ -75,60 +75,11 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 									<i class="icon-phone"></i> 012 345 6789
 								</a>
 							</li>
-							<li class="dropdown d-none d-sm-block">
-								<a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
-									<i class="icon-bell"></i>
-									<span class="count-label"></span>
-								</a>
-								<div class="dropdown-menu lrg" aria-labelledby="notifications">
-									<div class="dropdown-menu-header">
-										<h5>Notifications</h5>
-										<p class="m-0 sub-title">You have 5 unread notifications</p>
-									</div>
-									<ul class="header-notifications">
-										<li>
-											<a href="#" class="clearfix">
-												<div class="avatar">
-													<img src="img/user24.png" alt="Medical Admin Dashboards" />
-													<span class="notify-iocn icon-drafts text-danger"></span>
-												</div>
-												<div class="details">
-													<h6>Dr. Clive</h6>
-													<p>Appointed as a new President 2021-2024</p>
-												</div>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="clearfix">
-												<div class="avatar">
-													<img src="img/user21.png" alt="Medical Admin Dashboards" />
-													<span class="notify-iocn icon-layers text-info"></span>
-												</div>
-												<div class="details">
-													<h6>Dr. G. Levsmia</h6>
-													<p>Will be on leave on October 2nd week.</p>
-												</div>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="clearfix">
-												<div class="avatar">
-													<img src="img/user19.png" alt="Medical Admin Dashboards" />
-													<span class="notify-iocn icon-person_add text-success"></span>
-												</div>
-												<div class="details">
-													<h6>Dr. George S</h6>
-													<p>Sent new applointments list</p>
-												</div>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</li>
+						
 							<li class="dropdown">
 								<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-									<span class="user-name">Nélson Romyo</span>
-									<span class="avatar">NR<span class="status busy"></span></span>
+									<span class="user-name"><?php echo $_SESSION['SESSION_USERNAME']; ?></span>
+									<span class="avatar">D<span class="status busy"></span></span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettings">
 									<div class="header-profile-actions">
@@ -136,8 +87,8 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 											<div class="header-user">
 												<img src="img/user11.png" alt="Medical Dashboards" />
 											</div>
-											<h5>Nélson Romyo</h5>
-											<p>Admin</p>
+										
+											<p><?php echo $_SESSION['SESSION_USERNAME']; ?></p>
 										</div>
 										<a href="account-settings.php  "><i class="icon-user1"></i> My Profile</a>
 	
@@ -197,7 +148,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 									<a class="dropdown-item" href="hospital-appointments.php">Appointments</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="lab-reports.php">Reports</a>
+									<a class="dropdown-item" href="hospital-lab-reports.php">Reports</a>
 								</li>
 							</ul>
 						</li>
@@ -233,7 +184,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 				<div class="page-header">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item">Doctors</li>
-						<li class="breadcrumb-item active">Doctors List</li>
+						<li class="breadcrumb-item active">Apointments</li>
 					</ol>
 					<div class="site-award">
 						<img src="img/award.svg" alt="Hospital Dashboards"> Best Hospital
@@ -243,48 +194,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 
 				<!-- Content wrapper start -->
 				<div class="content-wrapper">
-               <div>
-			   <div class="card-title">Select The Specialize Area</div>
-								</div>
-								<div class="card-body">
-
-								<div class="col-md-6 col-sm-12 col-12">
-<form action="" method="post">
-    <div class="mb-3">
-    <input type="text" class="form-control" id="pwd" placeholder="Enter Speciality" name="speciality">
-    </div>
-   <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-</form>
-										</div>
-										<?php
-include("./db/config.php");
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-    // Sanitize user input to prevent SQL injection
-    $enteredSpeciality = mysqli_real_escape_string($con, $_POST["speciality"]);
-
-    // Use prepared statement to fetch doctors based on entered specialization
-    $sql = "SELECT doc_id, name FROM doctors WHERE speciality = ?";
-    $stmt = $con->prepare($sql);
-    $stmt->bind_param("s", $enteredSpeciality);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    // Display doctors
-    echo "<h3>Doctors with Specialization '$enteredSpeciality':</h3>";
-    echo "<ul>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<li>{$row['name']}</li>";
-    }
-    echo "</ul>";
-
-    $stmt->close();
-}
-
-$con->close();
-?>
-
-			   </div>				
+     				
 			</div>
 				<!-- Content wrapper end -->
 

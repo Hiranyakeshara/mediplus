@@ -1,3 +1,47 @@
+
+<?php
+session_start();
+
+if (isset($_SESSION['SESSION_USERNAME'])) {
+    // User is logged in
+    $username = $_SESSION['SESSION_USERNAME'];
+
+    // Database connection
+    $db_host = "localhost";
+    $db_user = "root";
+    $db_pass = "";
+    $db_name = "medi";
+
+    $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+    if ($con->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Retrieve user id from the database
+    $result = $con->query("SELECT doc_id FROM doctors WHERE username = '$username'");
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $loggedUserId = $row['doc_id'];
+    } else {
+        // Handle the case when the user is not found in the database
+        echo "Error: User not found in the database.";
+        exit();
+    }
+
+    $con->close();
+} else {
+    // User is not logged in
+    echo "User is not logged in";
+    header("Location: ./login.php");
+    exit();
+}
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -11,7 +55,7 @@
 		<link rel="shortcut icon" href="img/favicon.svg" />
 
 		<!-- Title -->
-		<title>Medical Admin Template - Hospital Doctors</title>
+		<title>Mediplus</title>
 
 
 		<!-- *************
@@ -44,7 +88,7 @@
 					<div class="col-sm-4 col-4">
 					<a href="index.html" class="logo">Medi<span>Plus</span></a>
 						<a href="index.html" class="logo"><span>-</span></a>
-						<a href="index.html" class="logo"><span>admin</span></a>
+						<a href="index.html" class="logo"><span>Doctor</span></a>
 					</div>
 					<div class="col-sm-8 col-8">
 
@@ -57,8 +101,8 @@
 							</li>
 							<li class="dropdown">
 								<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-									<span class="user-name">Nélson Romyo</span>
-									<span class="avatar">NR<span class="status busy"></span></span>
+									<span class="user-name"><?php echo $_SESSION['SESSION_USERNAME']; ?></span>
+									<span class="avatar">D<span class="status busy"></span></span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettings">
 									<div class="header-profile-actions">
@@ -66,13 +110,12 @@
 											<div class="header-user">
 												<img src="img/user11.png" alt="Medical Dashboards" />
 											</div>
-											<h5>Nélson Romyo</h5>
-											<p>Admin</p>
+										
+											<p><?php echo $_SESSION['SESSION_USERNAME']; ?></p>
 										</div>
-										<a href="hospital-add-doctor.html"><i class="icon-user1"></i> My Profile</a>
-										<a href="account-settings.html"><i class="icon-settings1"></i> Account Settings</a>
-										<a href="hospital-reviews.html"><i class="icon-activity"></i> Activity Logs</a>
-										<a href="login.html"><i class="icon-log-out1"></i> Sign Out</a>
+										<a href="account-settings.php"><i class="icon-user1"></i> My Profile</a>
+									
+										<a href="logout.php"><i class="icon-log-out1"></i> Sign Out</a>
 									</div>
 								</div>
 							</li>
@@ -128,7 +171,7 @@
 									<a class="dropdown-item" href="hospital-appointments.php">Appointments</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="lab-reports.php">Reports</a>
+									<a class="dropdown-item" href="hospital-lab-reports.php">Reports</a>
 								</li>
 							</ul>
 						</li>
@@ -163,7 +206,7 @@
 				<!-- Page header start -->
 				<div class="page-header">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">Doctors</li>
+						<li class="breadcrumb-item active">Reports</li>
 					</ol>
 					<div class="site-award">
 						<img src="img/award.svg" alt="Hospital Dashboards"> Best Hospital
@@ -173,7 +216,80 @@
 
 				<!-- Content wrapper start -->
 				<div class="content-wrapper">
-				
+				<?php
+//database connection details
+
+$db_host = "localhost";
+$db_user = "root";
+$db_pass = "";
+$db_name = "medi";
+
+ $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+
+ if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+ //Fetch the uploaded files from the database
+
+
+ $current_lab = $_SESSION['SESSION_USERNAME'];
+ $sql = "SELECT *FROM files WHERE d_id = '$loggedUserId' ";
+ $result = $conn->query($sql);
+
+?>
+
+
+
+
+	<div class="container mt-5">
+        <h2>My Lab Reports</h2>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+					<th>Patient ID</th>
+					<th>Lab Technisisan ID</th>
+					<th>Report Type</th>
+					<th>Comments</th>
+                    <th>File Name</th>
+                    <th>File Size</th>
+                    <th>File Type</th>
+                    <th>Download</th>
+					
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Display the uploaded files and download links
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $file_path = "uploads/" . $row['filename'];
+                        ?>
+                        <tr>
+							<td><?php echo $row['p_id']; ?></td>
+							<td><?php echo $row['upload']; ?></td>
+							<td><?php echo $row['type']; ?></td>
+							<td><?php echo $row['comments']; ?></td>
+                            <td><?php echo $row['filename']; ?></td>
+                            <td><?php echo $row['filesize']; ?> bytes</td>
+                            <td><?php echo $row['filetype']; ?></td>
+                            <td><a href="<?php echo $file_path; ?>" class="btn btn-primary" download>Download</a></td>
+							
+                        </tr>
+                        <?php
+                    }
+                } else {
+                    ?>
+                    <tr>
+                        <td colspan="4">No files uploaded yet.</td>
+                    </tr>
+                    <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 				</div>
 				<!-- Content wrapper end -->
