@@ -1,15 +1,33 @@
 <?php
-include("./db/config.php");
+include('./db/config.php');
 session_start();
 
 if (isset($_SESSION['SESSION_USERNAME'])) {
     // User is logged in
+    $username = $_SESSION['SESSION_USERNAME'];
 
+    
+
+    // Retrieve user id from the database
+    $result = $con->query("SELECT doc_id FROM doctors WHERE username = '$username'");
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $loggedUserId = $row['doc_id'];
+    } else {
+        // Handle the case when the user is not found in the database
+        echo "Error: User not found in the database.";
+        exit();
+    }
+
+    $con->close();
 } else {
     // User is not logged in
     echo "User is not logged in";
     header("Location: ./login.php");
+    exit();
 }
+
 ?>
 
 
@@ -210,50 +228,42 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 									<table id="basicExample" class="table">
 										<thead>
 											<tr>
-												<th>ID</th>
-												<th>Email</th>
 												<th>Name</th>
-												<th>Username</th>
-												<th>Password</th>
 												<th>address</th>
 												<th>address two</th>
 												<th>city</th>
 												<th>age</th>
 												<th>contact</th>
-												<th>Action</th>
+											
 											</tr>
 										</thead>
-										<tbody>
-										<?php
-        	    include("./db/config.php");
-                $query ="SELECT * FROM patients";
-                $sql = mysqli_query($con,$query);
-                while($row = mysqli_fetch_array($sql))
-                {  ?>
-											<tr>
-											<td><?php echo $row["p_id"];?></td>
-                                            <td><?php echo $row["email"];?></td>
-                                            <td><?php echo $row["name"];?></td>
-											<td><?php echo $row["username"];?></td>
-											<td><?php echo $row["password"];?></td>
-											<td><?php echo $row["address"];?></td>
-											<td><?php echo $row["address2"];?></td>
-											<td><?php echo $row["city"];?></td>
-											<td><?php echo $row["age"];?></td>
-											<td><?php echo $row["contact"];?></td>
-												<td>
-													<div class="btn-group btn-group-sm">
-														<button type="button" class="btn btn-info">
-															<i class="icon-edit1"></i>
-														</button>
-														<button type="button" class="btn btn-danger">
-															<i class="icon-cancel"></i>
-														</button>
-													</div>
-												</td>
-											</tr>
-  <?php  }?>
-										</tbody>
+										
+    <?php
+    include("./db/config.php");
+    $query = "SELECT * FROM appointments WHERE doctor = '$loggedUserId'";
+    $sql_outer = mysqli_query($con, $query);
+
+    while ($row_outer = mysqli_fetch_array($sql_outer)) {
+        ?>
+		<tbody>
+        <tr>
+            <td><?php echo $row_outer["patient"]; ?></td>
+            <?php 
+            $patient = $row_outer["patient"];
+            $p_query = "SELECT * FROM patients WHERE username = '$patient'";
+            $sql_inner = mysqli_query($con, $p_query);
+
+            while ($row_inner = mysqli_fetch_array($sql_inner)) {
+                ?>
+                <td><?php echo $row_inner["address"]; ?></td>
+                <td><?php echo $row_inner["address2"]; ?></td>
+                <td><?php echo $row_inner["city"]; ?></td>
+                <td><?php echo $row_inner["age"]; ?></td>
+            <?php } ?>
+        </tr>
+    <?php } ?>
+</tbody>
+
 									</table>
 								</div>
 								<!--*************************
@@ -277,7 +287,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 				************ Main container end *************
 			************* -->
 
-			<footer class="main-footer">© Bootstrap Gallery 2023</footer>
+			<footer class="main-footer"></footer>
 
 		</div>
 

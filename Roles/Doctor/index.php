@@ -1,17 +1,34 @@
 <?php
+include('./db/config.php');
 session_start();
 
 if (isset($_SESSION['SESSION_USERNAME'])) {
     // User is logged in
+    $username = $_SESSION['SESSION_USERNAME'];
 
+    
+
+    // Retrieve user id from the database
+    $result = $con->query("SELECT doc_id FROM doctors WHERE username = '$username'");
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $loggedUserId = $row['doc_id'];
+    } else {
+        // Handle the case when the user is not found in the database
+        echo "Error: User not found in the database.";
+        exit();
+    }
+
+    $con->close();
 } else {
     // User is not logged in
     echo "User is not logged in";
     header("Location: ./login.php");
+    exit();
 }
+
 ?>
-
-
 
 
 <!doctype html>
@@ -274,15 +291,24 @@ if ($result->num_rows > 0) {
 									<div class="card-title">Today Appointments</div>
 								</div>
 								<div class="card-body">
+								<?php
+							    $todayDate = date("Y-m-d");
+
+    $query = "SELECT * FROM appointments WHERE date = '$todayDate' AND doctor = '$loggedUserId' ";
+    $sql = mysqli_query($con, $query); 
+ while ($row = mysqli_fetch_array($sql)) {  
+        ?>
 
 									<div class="card" style="width: 18rem;">
 										<div class="card-body">
-										  <h5 class="card-title">Date:</h5>
-										  <h6 class="card-subtitle mb-2 text-body-secondary">Patient Name</h6>
+										  <h5 class="card-title">Date:<?php echo $row["date"]; ?></h5>
+										  <h4 class="card-body"> <?php echo $row["patient"]; ?></h5>
+										  <h6 class="card-subtitle mb-2 text-body-secondary">Time : <?php echo $row["time_slot"]; ?></h6>
 										  <p class="card-text">Sample Description about the sickness</p>
 										</div>							
 									  </div>
 								</div>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
@@ -291,34 +317,7 @@ if ($result->num_rows > 0) {
 
 
 					<!-- Row start -->
-					<div class="row gutters">
-						<div class="col-lg-4 col-sm-12 col-12">
-							<div class="card">
-								<div class="card-header">
-									<div class="card-title">Inquery</div>
-								</div>
-								<div class="card-body">
-									<div class="top-doctors-container">
-										<div class="top-doctor">
-											<img src="img/user2.png" class="avatar" alt="Best Admin Dashboard">
-											<div class="doctor-details">
-												<h6>Name</h6>
-												<div class="doctor-score">
-													<div>
-                                                    <p>Sample Message</p>
-													</div>
-													<div class="points">
-														<div class="left">Staff Type</div>
-														<div class="right">Staff ID</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+			
 					<!-- Row end -->
 
 				</div>

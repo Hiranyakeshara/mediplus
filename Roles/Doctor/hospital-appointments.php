@@ -1,18 +1,33 @@
 
-<?php   
-  include("db/config.php");
-
-  session_start();
+<?php
+include('./db/config.php');
+session_start();
 
 if (isset($_SESSION['SESSION_USERNAME'])) {
     // User is logged in
+    $username = $_SESSION['SESSION_USERNAME'];
 
+    
+
+    // Retrieve user id from the database
+    $result = $con->query("SELECT doc_id FROM doctors WHERE username = '$username'");
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $loggedUserId = $row['doc_id'];
+    } else {
+        // Handle the case when the user is not found in the database
+        echo "Error: User not found in the database.";
+        exit();
+    }
+
+    $con->close();
 } else {
     // User is not logged in
     echo "User is not logged in";
     header("Location: ./login.php");
+    exit();
 }
-
 
 ?>
 
@@ -186,15 +201,63 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 						<li class="breadcrumb-item">Doctors</li>
 						<li class="breadcrumb-item active">Apointments</li>
 					</ol>
-					<div class="site-award">
-						<img src="img/award.svg" alt="Hospital Dashboards"> Best Hospital
-					</div>
+				
 				</div>
 				<!-- Page header end -->
 
 				<!-- Content wrapper start -->
 				<div class="content-wrapper">
-     				
+     					<!-- Row start -->
+					<div class="row gutters">
+						<div class="col-sm-12">
+							<div class="table-container">
+
+								<!--*************************
+									*************************
+									*************************
+									Basic table start
+								*************************
+								*************************
+								*************************-->
+								<div class="table-responsive">
+									<table id="basicExample" class="table">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>Patient Name</th>
+												
+												<th>Appointment Date</th>
+												<th>Time Slot</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php
+        	    include("./db/config.php");
+                $query ="SELECT * FROM appointments WHERE doctor = '$loggedUserId'";
+                $sql = mysqli_query($con,$query);
+                while($row = mysqli_fetch_array($sql))
+                {  ?>
+											<tr>
+											<td><?php echo $row["ap_id"];?></td>
+                                            <td><?php echo  $row["patient"]; ?></td>
+                                            <td><?php echo $row["date"];?></td>
+                                            <td><?php echo $row["time_slot"];?></td>
+												<td>
+													<div class="btn-group btn-group-sm">
+														<button type="button" class="btn btn-info">
+															<i class="icon-edit1"></i>
+														</button>
+														<button type="button" class="btn btn-danger">
+															<i class="icon-cancel"></i>
+														</button>
+													</div>
+												</td>
+											</tr>
+  <?php  }?>
+										</tbody>
+									</table>
+								</div>
 			</div>
 				<!-- Content wrapper end -->
 
