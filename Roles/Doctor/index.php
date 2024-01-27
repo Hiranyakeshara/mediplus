@@ -11,6 +11,9 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 }
 ?>
 
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -25,7 +28,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 		<link rel="shortcut icon" href="img/favicon.svg" />
 
 		<!-- Title -->
-		<title>MediPlus - Admin</title>
+		<title>MediPlus - Doctor</title>
 
 
 		<!-- *************
