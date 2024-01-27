@@ -128,7 +128,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 				<div class="collapse navbar-collapse" id="royalHospitalsNavbar">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active-page" href="index.html">
+							<a class="nav-link active-page" href="index.php">
 								<i class="icon-devices_other nav-icon"></i>
 								Dashboard
 							</a>
@@ -260,7 +260,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
                 while($row = mysqli_fetch_array($sql))
                 {  ?>
 											<tr>
-											<td><?php echo $row["pharmacy_id"];?></td>
+											<td><?php echo $row["pharma_id"];?></td>
                                             <td><?php echo $row["fullname"];?></td>
                                             <td><?php echo $row["email"];?></td>
 											<td><?php echo $row["qualification"];?></td>

@@ -128,7 +128,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 				<div class="collapse navbar-collapse" id="royalHospitalsNavbar">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active-page" href="index.html">
+							<a class="nav-link active-page" href="index.php">
 								<i class="icon-devices_other nav-icon"></i>
 								Dashboard
 							</a>
@@ -242,36 +242,32 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 										<thead>
 											<tr>
 												<th>ID</th>
-												<th>Email</th>
-												<th>Name</th>
-												<th>Username</th>
-												<th>Password</th>
-												<th>address</th>
-												<th>address two</th>
-												<th>city</th>
-												<th>age</th>
-												<th>contact</th>
+												<th>Patient Name</th>
+												<th>Doctor</th>
+												<th>Appointment Date</th>
+												<th>Time Slot</th>
 												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody>
 										<?php
         	    include("./db/config.php");
-                $query ="SELECT * FROM patients";
+                $query ="SELECT * FROM appointments";
                 $sql = mysqli_query($con,$query);
                 while($row = mysqli_fetch_array($sql))
                 {  ?>
 											<tr>
-											<td><?php echo $row["p_id"];?></td>
-                                            <td><?php echo $row["email"];?></td>
-                                            <td><?php echo $row["name"];?></td>
-											<td><?php echo $row["username"];?></td>
-											<td><?php echo $row["password"];?></td>
-											<td><?php echo $row["address"];?></td>
-											<td><?php echo $row["address2"];?></td>
-											<td><?php echo $row["city"];?></td>
-											<td><?php echo $row["age"];?></td>
-											<td><?php echo $row["contact"];?></td>
+											<td><?php echo $row["ap_id"];?></td>
+                                            <td><?php echo  $row["patient"]; ?></td>
+                                            <?php  
+                    $doctor_id = $row["doctor"];
+                    $name_query = "SELECT name FROM doctors WHERE doc_id ='$doctor_id'";
+                    $name_result = mysqli_query($con, $name_query);
+                    $doctor_name = mysqli_fetch_assoc($name_result)["name"];
+                ?>
+                                         <td><?php echo $doctor_name; ?></td>
+                                            <td><?php echo $row["date"];?></td>
+                                            <td><?php echo $row["time_slot"];?></td>
 												<td>
 													<div class="btn-group btn-group-sm">
 														<button type="button" class="btn btn-info">
@@ -308,7 +304,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 				************ Main container end *************
 			************* -->
 
-			<footer class="main-footer">© Bootstrap Gallery 2023</footer>
+			<footer class="main-footer"></footer>
 
 		</div>
 

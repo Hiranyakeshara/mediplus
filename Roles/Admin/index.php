@@ -359,15 +359,30 @@ if ($result->num_rows > 0) {
 									<div class="card-title">Today Appointments</div>
 								</div>
 								<div class="card-body">
+<?php
+							    $todayDate = date("Y-m-d");
 
+    $query = "SELECT * FROM appointments WHERE date = '$todayDate'";
+    $sql = mysqli_query($con, $query); 
+ while ($row = mysqli_fetch_array($sql)) {  
+        ?>
 									<div class="card" style="width: 18rem;">
 										<div class="card-body">
-										  <h5 class="card-title">Date:</h5>
-										  <h6 class="card-subtitle mb-2 text-body-secondary">By :@Patent To:@Doctor</h6>
+										  <h5 class="card-title">Date: <?php echo $row["date"]; ?></h5>
+										  <h6 class="card-subtitle mb-2 text-body-secondary">By :<?php echo $row["patient"] ?>
+										  <?php  
+                    $doctor_id = $row["doctor"];
+                    $name_query = "SELECT name FROM doctors WHERE doc_id ='$doctor_id'";
+                    $name_result = mysqli_query($con, $name_query);
+                    $doctor_name = mysqli_fetch_assoc($name_result)["name"];
+                ?> 
+										 
+										  To: <?php echo $doctor_name; ?></h6>
 										  <p class="card-text">Sample Description about the sickness</p>
 										</div>							
 									  </div>
 								</div>
+								<?php }?>
 							</div>
 						</div>
 					</div>
