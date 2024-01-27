@@ -151,19 +151,6 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 							
 							</ul>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">
-								<i class="icon-alert-triangle nav-icon"></i>
-								Settings
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="loginDropdown">
-								<li>
-									<a class="dropdown-item" href="login.php">Login</a>
-								</li>
-							
-							</ul>
-						</li>
 					</ul>
 				</div>
 			</nav>
@@ -180,9 +167,6 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 				<div class="page-header">
 					<ol class="breadcrumb">
 					</ol>
-					<div class="site-award">
-						<img src="img/award.svg" alt="Hospital Dashboards"> Best Hospital
-					</div>
 				</div>
 				<!-- Page header end -->
 
