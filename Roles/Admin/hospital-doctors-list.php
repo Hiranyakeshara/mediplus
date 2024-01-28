@@ -200,14 +200,6 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 			<div class="main-container">
 
 
-				<!-- Page header start -->
-				<div class="page-header">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">Hospital Dashboard</li>
-					</ol>
-				
-				</div>
-				<!-- Page header end -->
 		<!-- Header end -->
 
 

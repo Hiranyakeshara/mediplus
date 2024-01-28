@@ -67,10 +67,10 @@ if (isset($_POST['submit'])) {
 								</a>
 								<h5>Welcome back,<br />Please Login to your Account.</h5>
 								<div class="form-group">
-									<input type="text" class="form-control" name="username" placeholder="User name" />
+									<input type="text" class="form-control" name="username" placeholder="User name"  required/>
 								</div>
 								<div class="form-group">
-									<input type="password" class="form-control" name="password" placeholder="Password" />
+									<input type="password" class="form-control" name="password" placeholder="Password"  required/>
 								</div>
 								<div class="actions">
 								

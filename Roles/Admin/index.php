@@ -10,7 +10,6 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
     header("Location: ./login.php");
 }
 ?>
-
 <!doctype html>
 <html lang="en">
 
@@ -200,13 +199,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 			<div class="main-container">
 
 
-				<!-- Page header start -->
-				<div class="page-header">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">Hospital Dashboard</li>
-					</ol>
-				</div>
-				<!-- Page header end -->
+			
 
 				<!-- Content wrapper start -->
 				<div class="content-wrapper">
@@ -377,36 +370,7 @@ if ($result->num_rows > 0) {
 					<!-- Row end -->
 
 
-					<!-- Row start -->
-					<div class="row gutters">
-						<div class="col-lg-4 col-sm-12 col-12">
-							<div class="card">
-								<div class="card-header">
-									<div class="card-title">Inquery</div>
-								</div>
-								<div class="card-body">
-									<div class="top-doctors-container">
-										<div class="top-doctor">
-											<img src="img/user2.png" class="avatar" alt="Best Admin Dashboard">
-											<div class="doctor-details">
-												<h6>Name</h6>
-												<div class="doctor-score">
-													<div>
-                                                    <p>Sample Message</p>
-													</div>
-													<div class="points">
-														<div class="left">Staff Type</div>
-														<div class="right">Staff ID</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Row end -->
+				
 
 				</div>
 				<!-- Content wrapper end -->

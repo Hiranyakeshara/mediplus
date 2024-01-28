@@ -189,9 +189,6 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="pagesDropdown">
 								<li>
-									<a class="dropdown-item" href="calendar.php">Callender</a>
-								</li>
-								<li>
 									<a class="dropdown-item" href="appointments.php">Appointments</a>
 								</li>
 								<li>
@@ -212,14 +209,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 			<div class="main-container">
 
 
-				<!-- Page header start -->
-				<div class="page-header">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">Hospital Dashboard</li>
-					</ol>
-				
-				</div>
-				<!-- Page header end -->
+			
 				<!-- Page header end -->
 
 				<!-- Content wrapper start -->
@@ -238,43 +228,43 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 										<div class="col-sm-6 col-12">
 											<div class="form-group">
 												<label for="fullName">Full Name</label>
-												<input type="text" name="fullname" class="form-control" id="fullName" placeholder="Srinu">
+												<input type="text" name="fullname" class="form-control" id="fullName" placeholder="Full name" required>
 											</div>
 										</div>
 										<div class="col-sm-6 col-12">
 											<div class="form-group">
 												<label for="inputEmail">Email</label>
-												<input type="email" name="email" class="form-control" id="inputEmail" placeholder="doctor@bm.com">
+												<input type="email" name="email" class="form-control" id="inputEmail" placeholder="doctor@bm.com" required>
 											</div>
 										</div>
 										<div class="col-sm-6 col-12">
 											<div class="form-group">
 												<label for="education">Qualification</label>
-												<input type="text" name="qualification" class="form-control" id="education" placeholder="Qualification">
+												<input type="text" name="qualification" class="form-control" id="education" placeholder="Qualification" required>
 											</div>
 										</div>
 										<div class="col-sm-6 col-12">
 											<div class="form-group">
 												<label for="addreSs">Full Address</label>
-												<textarea class="form-control" name="fulladdress" id="addreSs" rows="3" placeholder="Current Address"></textarea>
+												<textarea class="form-control" name="fulladdress" id="addreSs" rows="3" placeholder="Current Address" required></textarea>
 											</div>
 										</div>
 										<div class="col-sm-6 col-12">
 											<div class="form-group">
 												<label for="biO">Bio</label>
-												<textarea class="form-control" name="bio" id="biO" rows="3" placeholder="Description"></textarea>
+												<textarea class="form-control" name="bio" id="biO" rows="3" placeholder="Description" required></textarea>
 											</div>
 										</div>
 										<div class="col-sm-12">
 											<div class="form-group">
 												<label for="userName">User Name</label>
-												<input type="text" name="username" class="form-control" id="userName" placeholder="User Name">
+												<input type="text" name="username" class="form-control" id="userName" placeholder="User Name" required>
 											</div>
 										</div>
 										<div class="col-sm-12">
 											<div class="form-group">
 												<label for="password">Password</label>
-												<input type="password" name="password" class="form-control" id="password" placeholder="Password">
+												<input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
 											</div>
 										</div>
 										<button class="btn-primary" type="submit" name="submit">Create Profile</button>

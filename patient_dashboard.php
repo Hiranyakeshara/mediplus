@@ -37,7 +37,7 @@ $patientname = $_SESSION['SESSION_USERNAME'];
         <form action="appointment_booking.php" method="post">
      <div>     
     <label for="browser" class="form-label">Choose your doctor from the list:</label>
-    <input class="form-control" list="doctors" name="doctor" id="doctor">
+    <input class="form-control" list="doctors" name="doctor" id="doctor" required>
     <datalist id="doctors">
     <?php
 															include("./db/config.php");
@@ -53,14 +53,14 @@ $patientname = $_SESSION['SESSION_USERNAME'];
 <br>
     <div>
     <label for="birthdate">Select Appointment Date:</label>
-  <input type="date" id="date" name="date">
+  <input type="date" id="date" name="date" required>
 
     </div>
    
 
     <div>
     <label for="sel1" class="form-label">Select Time Slot:</label>
-    <select class="form-select" id="sel1" name="timeslot">
+    <select class="form-select" id="sel1" name="timeslot" required>
       <option>1.00 - 2.00 p.m</option>
       <option>2.00 - 3.00 p.m</option>
       <option>3.00 - 4.00 p.m</option>

@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if (isset($_SESSION['SESSION_USERNAME'])) {
+    // User is logged in
+
+} else {
+    // User is not logged in
+    echo "User is not logged in";
+    header("Location: ./login.php");
+}
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -12,7 +27,7 @@
 		<link rel="shortcut icon" href="img/favicon.svg" />
 
 		<!-- Title -->
-		<title>Medical Admin Template - Account Settings</title>
+		<title>MediPlus</title>
 
 
 		<!-- *************
@@ -93,99 +108,6 @@
 		************* -->
 
 
-		<div class="container-fluid">
-
-
-			<!-- Navigation start -->
-			<nav class="navbar navbar-expand-lg custom-navbar">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#royalHospitalsNavbar"
-					aria-controls="royalHospitalsNavbar" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon">
-						<i></i>
-						<i></i>
-						<i></i>
-					</span>
-				</button>
-				<div class="collapse navbar-collapse" id="royalHospitalsNavbar">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link active-page" href="index.html">
-								<i class="icon-devices_other nav-icon"></i>
-								Dashboard
-							</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="doctoRs" role="button" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">
-								<i class="icon-users nav-icon"></i>
-								Staff
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="doctoRs">
-								<li>
-									<a class="dropdown-item" href="hospital-doctors-list.php">Doctors List</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="hospital-doctors.php">Doctors</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="hospital-patients.php">Patients</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="lab-technisian.php">Lab Technisians</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="hospital-pharmacists.php">Pharmacist</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="hospital-add-doctor.php">Add Doctor</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="hospital-add-Pharmacist.php">Add Pharmacist</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="hospital-add-lab.php">Add Lab Technisian</a>
-								</li>
-								
-							</ul>
-						</li>
-
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">
-								<i class="icon-book-open nav-icon"></i>
-								Management
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="pagesDropdown">
-								<li>
-									<a class="dropdown-item" href="calendar.php">Callender</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="appointments.php">Appointments</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="reports.php">Reports</a>
-								</li>
-								
-							</ul>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">
-								<i class="icon-alert-triangle nav-icon"></i>
-								Settings
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="loginDropdown">
-								<li>
-									<a class="dropdown-item" href="login.php">Login</a>
-								</li>
-							
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</nav>
-			<!-- Navigation end -->
-
 
 			<!-- *************
 				************ Main container start *************
@@ -193,14 +115,6 @@
 			<div class="main-container">
 
 
-				<!-- Page header start -->
-				<div class="page-header">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">Hospital Dashboard</li>
-					</ol>
-					
-				</div>
-				<!-- Page header end -->
 		<!-- Header end -->
 
 		<!-- *************
@@ -274,34 +188,14 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="pagesDropdown">
 								<li>
-									<a class="dropdown-item" href="calendar.php">Callender</a>
-								</li>
-								<li>
 									<a class="dropdown-item" href="appointments.php">Appointments</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="reports.php">Reports</a>
 								</li>
-								<li>
-									<a class="dropdown-item" href="prescription.php">Prescriptions</a>
-								</li>
 							</ul>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">
-								<i class="icon-alert-triangle nav-icon"></i>
-								Settings
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="loginDropdown">
-								<li>
-									<a class="dropdown-item" href="login.php">Login</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="signup.php">Signup</a>
-								</li>
-							
-							</ul>
+				
 						</li>
 					</ul>
 				</div>
@@ -314,17 +208,6 @@
 			************* -->
 			<div class="main-container">
 
-				<!-- Page header start -->
-				<div class="page-header">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item">Pages</li>
-						<li class="breadcrumb-item active">Account Settings</li>
-					</ol>
-					<div class="site-award">
-						<img src="img/award.svg" alt="Hospital Dashboards"> Best Hospital
-					</div>
-				</div>
-				<!-- Page header end -->
 
 				<!-- Content wrapper start -->
 				<div class="content-wrapper">
@@ -339,27 +222,10 @@
 											<div class="user-avatar">
 												<img src="img/user2.png" alt="Medical Dashboards" />
 											</div>
-											<h5 class="user-name">Emily Russell</h5>
-											<h6 class="user-email">doctor@wwwzzz.com</h6>
+											<h5 class="user-name"><?php echo $_SESSION['SESSION_USERNAME']; ?></h5>
+											
 										</div>
-										<div class="setting-links">
-											<a href="#">
-												<i class="icon-bell"></i>
-												Notifications
-											</a>
-											<a href="#">
-												<i class="icon-chat"></i>
-												Messages
-											</a>
-											<a href="#">
-												<i class="icon-date_range"></i>
-												Tasks
-											</a>
-											<a href="#">
-												<i class="icon-settings"></i>
-												Settings
-											</a>
-										</div>
+								
 									</div>
 								</div>
 							</div>
@@ -367,54 +233,55 @@
 						<div class="col-md-9 ">
 							<div class="card">
 								<div class="card-header">
-									<div class="card-title">Update Profile</div>
+									<div class="card-title">Admin Profile Profile</div>
 								</div>
+								
+								<?php
+include('./db/config.php');
+$username = $_SESSION['SESSION_USERNAME'];
+
+$sql = "SELECT * FROM users WHERE username = '$username'";
+$result = $con->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+	$name = $row['name'];
+    $password = $row['password'];
+	
+    ?>
 								<div class="card-body">
 									<div class="row gutters">
 										<div class=col-sm-6 col-12">
 											<div class="form-group">
-												<label for="fullName">Full Name</label>
-												<input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+												<label for="fullName">Admin User Name</label>
+												<input type="text" class="form-control" id="fullName" placeholder="<?php echo $username; ?>" disabled>
 											</div>
-											<div class="form-group">
-												<label for="eMail">Email</label>
-												<input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
-											</div>
-											<div class="form-group">
-												<label for="phone">Phone</label>
-												<input type="text" class="form-control" id="phone" placeholder="Enter phone number">
-											</div>
-											<div class="form-group">
-												<label for="website">Website URL</label>
-												<input type="url" class="form-control" id="website" placeholder="Website url">
-											</div>
+										
 										</div>
 										<div class=col-sm-6 col-12">
 											<div class="form-group">
-												<label for="addRess">Address</label>
-												<input type="text" class="form-control" id="addRess" placeholder="Enter Address">
+												<label for="addRess">Name</label>
+												
+												<input type="text" class="form-control" id="addRess" placeholder="<?php echo $name; ?>" disabled/>
 											</div>
-											<div class="form-group">
-												<label for="ciTy">City</label>
-												<input type="text" class="form-control" id="ciTy" placeholder="Enter City">
-											</div>
-											<div class="form-group">
-												<label for="sTate">State</label>
-												<input type="text" class="form-control" id="sTate" placeholder="Enter State">
-											</div>
-											<div class="form-group">
-												<label for="zIp">ZIP</label>
-												<input type="number" class="form-control" id="zIp" placeholder="Website ZIP">
-											</div>
+
 										</div>
-										<div class="col-sm-12">
-											<div class="text-right">
-												<button type="button" id="cancel" name="cancel" class="btn btn-light">Cancel</button>
-												<button type="button" id="submit2" name="submit2" class="btn btn-primary">Submit Form</button>
+										<div class=col-sm-6 col-12">
+											<div class="form-group">
+												<label for="addRess">Password</label>
+												
+												<input type="text" class="form-control" id="addRess" placeholder="<?php echo $password; ?>" disabled/>
 											</div>
+
 										</div>
+									
 									</div>
 								</div>
+								<?php
+} else {
+    echo "User not found.";
+}
+?>
 							</div>
 						</div>
 					</div>
@@ -430,7 +297,7 @@
 			************* -->
 
 
-			<footer class="main-footer">© Bootstrap Gallery 2023</footer>
+			<footer class="main-footer"></footer>
 
 
 		</div>

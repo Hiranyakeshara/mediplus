@@ -175,9 +175,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 								Management
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="pagesDropdown">
-								<li>
-									<a class="dropdown-item" href="calendar.php">Callender</a>
-								</li>
+							
 								<li>
 									<a class="dropdown-item" href="appointments.php">Appointments</a>
 								</li>
@@ -199,14 +197,6 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 			<div class="main-container">
 
 
-				<!-- Page header start -->
-				<div class="page-header">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">Hospital Dashboard</li>
-					</ol>
-				
-				</div>
-				<!-- Page header end -->
 				<!-- Page header end -->
 
 				<!-- Content wrapper start -->
