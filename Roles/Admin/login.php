@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
 								<a href="#" class="login-logo">
 									MediPlus 
 								</a>
-								<h5>Welcome back,<br />Please Login to your Account.</h5>
+								<h5>Admin Login,<br />Please Login to your Account.</h5>
 								<div class="form-group">
 									<input type="text" class="form-control" name="username" placeholder="User name"  required/>
 								</div>

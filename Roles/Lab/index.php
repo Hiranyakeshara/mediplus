@@ -162,14 +162,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 			<div class="main-container">
 
 
-				<!-- Page header start -->
-				<div class="page-header">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">Hospital Dashboard</li>
-					</ol>
-				</div>
-				<!-- Page header end -->
-
+		
 				<!-- Content wrapper start -->
 				<div class="content-wrapper">
 
@@ -218,7 +211,7 @@ if ($result->num_rows > 0) {
 										<div class="col-sm-6 col-12">
 											<div class="form-group">
 											<label for="browser" class="form-label">Select Patient:</label>
-													<input class="form-control" list="patients" name="patient" id="browser">
+													<input class="form-control" list="patients" name="patient" id="browser" required>
 														<datalist id="patients">
 															<?php
 															include("./db/config.php");
@@ -234,7 +227,7 @@ if ($result->num_rows > 0) {
 										<div class="col-sm-6 col-12">
 											<div class="form-group">
 											<label for="browser" class="form-label">Doctor:</label>
-													<input class="form-control" name="doctor" list="doctors"  id="browser">
+													<input class="form-control" name="doctor" list="doctors"  id="browser" required>
 														<datalist id="doctors">
 														<?php
 															include("./db/config.php");
@@ -250,7 +243,7 @@ if ($result->num_rows > 0) {
 										<div class="col-sm-6 col-12">
 											<div class="form-group">
 											<label for="browser" class="form-label">Report Type:</label>
-													<input class="form-control" list="types" name="type" id="browser">
+													<input class="form-control" list="types" name="type" id="browser" required>
 														<datalist id="types">
 															<option value="Urine">
 															<option value="Blood">
@@ -263,13 +256,13 @@ if ($result->num_rows > 0) {
 										<div class="col-sm-6 col-12">
 											<div class="form-group">
 											<label for="file" class="form-label">Select file</label>
-											<input type="file" class="form-control" name="file" id = "file">
+											<input type="file" class="form-control" name="file" id = "file" required>
 											</div>
 										</div>
 										<div class="col-sm-6 col-12">
 											<div class="form-group">
 												<label for="biO">MLT Comments</label>
-												<textarea class="form-control" name="comment" id="biO" rows="3" placeholder="Description"></textarea>
+												<textarea class="form-control" name="comment" id="biO" rows="3" placeholder="Description" ></textarea>
 											</div>
 										</div>
 

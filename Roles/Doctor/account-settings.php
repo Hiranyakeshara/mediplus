@@ -206,7 +206,7 @@ if ($result->num_rows > 0) {
 										</div>
 										<div class="setting-links">
 											<a href="#">
-												<i class="icon-bell"></i>
+												
 												<?php echo $speciality; ?>
 											</a>
 										</div>
@@ -250,12 +250,7 @@ if ($result->num_rows > 0) {
 ?>
 									
 										</div>
-										<div class="col-sm-12">
-											<div class="text-right">
-												<button type="button" id="cancel" name="cancel" class="btn btn-light">Update</button>
-					
-											</div>
-										</div>
+								
 									</div>
 								</div>
 							</div>

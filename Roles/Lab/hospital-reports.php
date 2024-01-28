@@ -163,13 +163,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 			<div class="main-container">
 
 
-				<!-- Page header start -->
-				<div class="page-header">
-					<ol class="breadcrumb">
-					</ol>
-				</div>
-				<!-- Page header end -->
-
+				
 				<!-- Content wrapper start -->
 				<div class="content-wrapper">
 				<?php

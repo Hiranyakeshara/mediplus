@@ -23,7 +23,7 @@ html, body {
   max-height: 50px;
   font-size: 36px;
   background-color: #ffffff;
-  color: #ff5252;
+  color: #007FFF;
   border: none;
   outline: none;
 }
@@ -71,7 +71,7 @@ html, body {
 }
 
 .options a:hover {
-  color: #ff5252;
+  color: #007FFF;
 }
 
 .options a:focus {
@@ -91,7 +91,7 @@ html, body {
   margin: 2% 0;
   padding: 5%;
   border-radius: 5px;
-  border: 1px solid #ff5252;
+  border: 1px solid #007FFF;
 }
 
 #add_new_customer_model, #add_new_supplier_model, #add_new_medicine_model {
@@ -134,7 +134,7 @@ input[type=number] {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #ff5252;
+  background: #007FFF;
 }
 
 /* Handle on hover */

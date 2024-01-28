@@ -2,13 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Pharmacy Management - Login</title>
+    <title>Mediplus Pharmacy - Login</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-		<script src="bootstrap/js/jquery.min.js"></script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="css/index.css">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/index.js"></script>
   </head>
   <body>
@@ -17,8 +16,8 @@
         <div class="card-body">
           <form name="login-form" class="login-form" action="home.php" method="post" onsubmit="return validateCredentials();">
             <div class="logo">
-        			<img src="images/prof.jpg" class="profile"/>
-        			<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
+        			<h1 class="logo-caption"><span class="tweak">Mediplus</span></h1>
+              <h3 class="logo-caption"><span class="tweak">Pharmacy Login</span></h3>
         		</div> <!-- logo class -->
             <div class="input-group form-group">
               <div class="input-group-prepend">
@@ -33,15 +32,11 @@
               <input name="password" type="password" class="form-control" placeholder="password" onkeyup="validate();" required>
             </div> <!-- input-group class -->
             <div class="form-group">
-              <button class="btn btn-default btn-block btn-custom">Login</button>
+              <button class="btn btn-primary" >Login</button>
             </div>
           </form><!-- form close -->
         </div> <!-- cord-body class -->
-        <div class="card-footer">
-          <div class="text-center">
-            <a class="text-light" href="#">Forgot password?</a>
-          </div>
-        </div> <!-- cord-footer class -->
+
       </div> <!-- card class -->
     </div> <!-- container class -->
   </body>
