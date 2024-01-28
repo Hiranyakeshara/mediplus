@@ -241,12 +241,7 @@ if ($result->num_rows > 0) {
 											</div>
 										</div>
 
-										<div class="col-sm-12">
-											<div class="text-right">
-	
-												<button type="button" id="submit2" name="submit2" class="btn btn-primary">Update Personal Data</button>
-											</div>
-										</div>
+									
 									</div>
 								</div>
 							</div>

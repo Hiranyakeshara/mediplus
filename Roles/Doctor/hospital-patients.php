@@ -218,32 +218,31 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 											
 											</tr>
 										</thead>
-										
+										<tbody>
     <?php
     include("./db/config.php");
     $query = "SELECT * FROM appointments WHERE doctor = '$loggedUserId'";
     $sql_outer = mysqli_query($con, $query);
 
     while ($row_outer = mysqli_fetch_array($sql_outer)) {
-        ?>
-		<tbody>
-        <tr>
-            <td><?php echo $row_outer["patient"]; ?></td>
-            <?php 
-            $patient = $row_outer["patient"];
-            $p_query = "SELECT * FROM patients WHERE username = '$patient'";
-            $sql_inner = mysqli_query($con, $p_query);
+        $patient = $row_outer["patient"];
+        $p_query = "SELECT * FROM patients WHERE username = '$patient'";
+        $sql_inner = mysqli_query($con, $p_query);
 
-            while ($row_inner = mysqli_fetch_array($sql_inner)) {
-                ?>
+        while ($row_inner = mysqli_fetch_array($sql_inner)) {
+            ?>
+            <tr>
+                <td><?php echo $row_inner["name"]; ?></td>
                 <td><?php echo $row_inner["address"]; ?></td>
                 <td><?php echo $row_inner["address2"]; ?></td>
                 <td><?php echo $row_inner["city"]; ?></td>
                 <td><?php echo $row_inner["age"]; ?></td>
-            <?php } ?>
-        </tr>
-    <?php } ?>
+				<td><?php echo $row_inner["contact"]; ?></td>
+            </tr>
+        <?php }
+    } ?>
 </tbody>
+
 
 									</table>
 								</div>
