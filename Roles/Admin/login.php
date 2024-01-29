@@ -42,9 +42,9 @@ if (isset($_POST['submit'])) {
 		<!-- Title -->
 		<title>Mediplus</title>
 
-		<!-- *************
-			************ Common Css Files *************
-			************ -->
+		<!-- *****
+			**** Common Css Files *****
+			**** -->
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 
