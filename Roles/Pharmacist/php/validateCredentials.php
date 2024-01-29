@@ -22,7 +22,7 @@
       $username = $_GET["uname"];
       $password = $_GET["pswd"];
 
-      $query = "SELECT * FROM admin_credentials WHERE username = '$username' AND password = '$password'";
+      $query = "SELECT * FROM pharmacy WHERE username = '$username' AND password = '$password'";
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
       if($row)  {
@@ -63,7 +63,7 @@
       $email = $_GET["email"];
       $contact_number = $_GET["contact_number"];
 
-      $query = "SELECT * FROM admin_credentials WHERE EMAIL = '$email' AND CONTACT_NUMBER = '$contact_number'";
+      $query = "SELECT * FROM pharmacy WHERE EMAIL = '$email' AND CONTACT_NUMBER = '$contact_number'";
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
       echo ($row) ? "true" : "false";
@@ -81,7 +81,7 @@
       $email = $_GET["email"];
       $contact_number = $_GET["contact_number"];
 
-      $query = "UPDATE admin_credentials SET USERNAME = '$username', PASSWORD = '$password' WHERE EMAIL = '$email' AND CONTACT_NUMBER = '$contact_number'";
+      $query = "UPDATE pharmacy SET USERNAME = '$username', PASSWORD = '$password' WHERE EMAIL = '$email' AND CONTACT_NUMBER = '$contact_number'";
       $result = mysqli_query($con, $query);
       echo ($result) ? "true" : "false";
     }
@@ -95,7 +95,7 @@
     if($con) {
       $password = $_GET["password"];
 
-      $query = "SELECT * FROM admin_credentials WHERE PASSWORD = '$password'";
+      $query = "SELECT * FROM pharmacy WHERE PASSWORD = '$password'";
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
       echo ($row) ? "true" : "false";

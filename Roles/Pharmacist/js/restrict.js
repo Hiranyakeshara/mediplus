@@ -8,7 +8,7 @@ xhttp.send();
 
 //alert(xhttp.responseText);
 if(xhttp.responseText == "")
-  window.location.href = "./localhost/MediPlus/mediplus/Roles/Pharmacist/index.php";
+  window.location.href = "./localhost/MediPlus/mediplus/Roles/Pharmacist/";
 
 if(xhttp.responseText == "false")
-  window.location.href = "./localhost/MediPlus/mediplus/Roles/Pharmacist/index.php";
+  window.location.href = "./localhost/MediPlus/mediplus/Roles/Pharmacist/";
