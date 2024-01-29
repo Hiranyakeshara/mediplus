@@ -6,7 +6,7 @@
   function isSetupDone() {
     require "db_connection.php";
     if($con) {
-      $query = "SELECT * FROM admin_credentials";
+      $query = "SELECT * FROM pharmacy";
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
       echo ($row) ? "true" : "false";
@@ -22,11 +22,11 @@
       $username = $_GET["uname"];
       $password = $_GET["pswd"];
 
-      $query = "SELECT * FROM admin_credentials WHERE USERNAME = '$username' AND PASSWORD = '$password'";
+      $query = "SELECT * FROM admin_credentials WHERE username = '$username' AND password = '$password'";
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
       if($row)  {
-        $query = "UPDATE admin_credentials SET IS_LOGGED_IN = 'true'";
+        $query = "UPDATE pharmacy SET IS_LOGGED_IN = 'true'";
         $result = mysqli_query($con, $query);
         echo "true";
       }
@@ -48,7 +48,7 @@
       $username = $_GET["username"];
       $password = $_GET["password"];
 
-      $query = "INSERT INTO admin_credentials (PHARMACY_NAME, ADDRESS, EMAIL, CONTACT_NUMBER, USERNAME, PASSWORD, IS_LOGGED_IN) VALUES('$pharmacy_name', '$address', '$email', '$contact_number', '$username', '$password', 'false')";
+      $query = "INSERT INTO  (PHARMACY_NAME, ADDRESS, EMAIL, CONTACT_NUMBER, USERNAME, PASSWORD, IS_LOGGED_IN) VALUES('$pharmacy_name', '$address', '$email', '$contact_number', '$username', '$password', 'false')";
       $result = mysqli_query($con, $query);
       echo ($result) ? "true" : "false";
     }

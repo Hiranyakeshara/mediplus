@@ -2,6 +2,8 @@
 include("./db/config.php");
 session_start();
 
+$msg = ""; // Initialize the message variable
+
 if (isset($_POST['submit'])) {
     $username = mysqli_real_escape_string($con, $_POST['username']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -18,11 +20,10 @@ if (isset($_POST['submit'])) {
         header("Location: index.php");
         exit(); // Make sure to add an exit() after the header redirect
     } else {
-        $msg = "<div class='alert alert-info'>First verify your account and try again.</div>";
+        $msg = "<div class='alert alert-danger'>Username or password is invalid. Please try again.</div>";
     }
-} else {
-    $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
 }
+
 ?>
 
 <!doctype html>
@@ -66,18 +67,19 @@ if (isset($_POST['submit'])) {
 									MediPlus 
 								</a>
 								<h5>Admin Login,<br />Please Login to your Account.</h5>
+								
+								<?php echo $msg; // Display error message ?>
+
 								<div class="form-group">
-									<input type="text" class="form-control" name="username" placeholder="User name"  required/>
+									<input type="text" class="form-control" name="username" placeholder="User name" required/>
 								</div>
 								<div class="form-group">
-									<input type="password" class="form-control" name="password" placeholder="Password"  required/>
+									<input type="password" class="form-control" name="password" placeholder="Password" required/>
 								</div>
 								<div class="actions">
-								
 									<button type="submit" name="submit" class="btn btn-info">Login</button>
 								</div>
 								<hr>
-								
 							</div>
 						</div>
 					</div>
