@@ -9,7 +9,7 @@ body {
 .sidenav {
   width: 15%;
   height: 100vh;
-  background-color: #222222;
+  background-color: #ffffff;
   position: fixed;
   z-index: 1;
   flex: 1 0 auto;
@@ -20,7 +20,7 @@ body {
   height: 100%;
   top: 0;
   border-radius: 0;
-  background-color: #111111;
+  background-color: #fefeff;
 }
 
 .logo .logo-caption {
@@ -47,7 +47,7 @@ body {
 }
 
 .main-menu-item > a {
-  color: #eeeeee;
+  color: #252cfb;
   text-decoration: none;
   font-size: 16px;
 }
@@ -67,11 +67,11 @@ body {
 }
 
 .treeview-menu .treeview a {
-  color: #eeeeee;
+  color: #5c00fb;
   width: 100%;
   text-decoration: none;
   font-size: 12px;
-  background-color: #111111;
+  background-color: #ffffff;
 }
 
 .treeview-menu .treeview a:hover {
@@ -99,7 +99,7 @@ body {
   padding-top: 10px;
   margin-left: 15%;
   width: 85%;
-  background: #111111;
+  background: #ffffff;
   position: relative;
   bottom: 0;
   z-index: 1;
