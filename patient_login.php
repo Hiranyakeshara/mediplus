@@ -1,10 +1,34 @@
-<?php 
+<?php
 include("./db/config.php");
 session_start();
 
+if (isset($_POST['submit'])) {
+    $username = mysqli_real_escape_string($con, $_POST['username']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
 
+    $sql = "SELECT * FROM patients WHERE username=? AND password=?";
+    
+    // Use prepared statement to prevent SQL injection
+    $stmt = mysqli_prepare($con, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (!$result) {
+        die("Query error: " . mysqli_error($con)); // Check for query error and display it
+    }
+
+    if (mysqli_num_rows($result) === 1) {
+        $_SESSION['SESSION_USERNAME'] = $username;
+        header("Location: patient_dashboard.php");
+        exit(); // Make sure to add an exit() after the header redirect
+    } else {
+        $msg = "<div class='alert alert-danger'>Your username or password is incorrect. Please try again.</div>";
+    }
+} else {
+    $msg = ""; // Initialize $msg as an empty string to avoid undefined variable warning
+}
 ?>
-
 
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -149,24 +173,27 @@ session_start();
 								<h2>Provide the Credentials</h2>
 								<p>If you have any questions please fell free to contact with us.</p>
 								<!-- Form -->
-								<form class="form" method="post" action="./login.php">
+								<form class="form" method="post" action="">
 									<div class="row">
-					
+										<?php if (isset($msg) && !empty($msg)) { ?>
+											<div class="col-lg-12">
+												<?php echo $msg; ?>
+											</div>
+										<?php } ?>
 										<div class="col-lg-12">
 											<div class="form-group">
-												<input type="text" placeholder="Enter Your Username" name="username"  required="">
+												<input type="text" placeholder="Enter Your Username" name="username"  required>
 											</div>
 										</div>
 										<div class="col-lg-12">
 											<div class="form-group">
-												<input name="password" type="password" placeholder="Enter Your Password" required=""></input>
+												<input name="password" type="password" placeholder="Enter Your Password" required></input>
 											</div>
 										</div>
 										<div class="col-12">
 											<div class="form-group login-btn">
 												<button class="btn" name="submit" type="submit">Login</button>
 											</div>
-								
 										</div>
 									</div>
 								</form>
