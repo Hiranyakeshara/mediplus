@@ -124,9 +124,8 @@ if (isset($_POST['submit'])) {
 											<li ><a href="index.php">Home</a>
 											
 											</li>
-											<li><a href="doc">Doctors</a></li>
-											<li><a href="#">Services </a></li>
-											<li><a href="#">Contact Us</a></li>
+											<li><a href="doctors.php">Doctors</a></li>
+					
 										</ul>
 									</nav>
 								</div>
