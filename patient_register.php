@@ -1,18 +1,28 @@
 <?php   
-  include("db/config.php");
-  if(isset($_POST["signup"]))
-  {
-      //post all value
-      extract($_POST);
-      $query = "INSERT INTO `patients` (`p_id`, `email`,`name`, `username`,`password`,`address`,`address2`,`city`,`age`,`contact`) VALUES (NULL, '".$email."', '".$name."','".$username."','".$password."','".$address."','".$address2."','".$city."','".$age."','".$contact."');";
+include("db/config.php");
 
-      mysqli_query($con,$query);
-      header("Location: patient_login.php");
+if (isset($_POST["signup"])) {
+    // post all values
+    extract($_POST);
 
-  }
+    // Check if the username already exists
+    $checkQuery = "SELECT * FROM `patients` WHERE `username` = '$username'";
+    $result = mysqli_query($con, $checkQuery);
 
+    if (mysqli_num_rows($result) > 0) {
+        // Username already exists, display an error message
+        echo '<div class="alert alert-danger" role="alert">
+                The entered username already exists. Please choose a different username.
+              </div>';
+    } else {
+        // Username doesn't exist, proceed with the registration
+        $query = "INSERT INTO `patients` (`p_id`, `email`,`name`, `username`,`password`,`address`,`address2`,`city`,`age`,`contact`) VALUES (NULL, '$email', '$name','$username','$password','$address','$address2','$city','$age','$contact')";
+
+        mysqli_query($con, $query);
+        header("Location: patient_login.php");
+    }
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
