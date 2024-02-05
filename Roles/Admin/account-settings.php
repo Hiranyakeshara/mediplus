@@ -218,7 +218,13 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 							<div class="card">
 								<div class="card-body">
 									<div class="account-settings">
-
+										<div class="user-profile">
+											<div class="user-avatar">
+												<img src="img/user2.png" alt="Medical Dashboards" />
+											</div>
+											<h5 class="user-name"><?php echo $_SESSION['SESSION_USERNAME']; ?></h5>
+											
+										</div>
 								
 									</div>
 								</div>
