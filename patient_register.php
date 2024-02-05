@@ -88,12 +88,11 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="index.php">Home </a>
+											<li ><a href="index.php">Home </a>
 										
 											</li>
-											<li><a href="#">Doctors</a></li>
-											<li><a href="#">Services </a></li>
-											<li><a href="#">Contact Us</a></li>
+											<li><a href="doctors.php">Doctors</a></li>
+			
 										</ul>
 									</nav>
 								</div>

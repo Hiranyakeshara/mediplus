@@ -80,8 +80,7 @@
 										
 											</li>
 											<li class="active"><a href="doctors.php">Doctors</a></li>
-											<li><a href="#">Services </a></li>
-											<li><a href="#">Contact Us</a></li>
+										
 										</ul>
 									</nav>
 								</div>
