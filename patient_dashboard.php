@@ -45,7 +45,7 @@ $patientname = $_SESSION['SESSION_USERNAME'];
 															$sql = mysqli_query($con,$query);
 															while($row = mysqli_fetch_array($sql))
 															{  ?>
-                             <option value="<?php echo $row["doc_id"];?>"><?php echo $row["name"];?> - <?php echo $row["speciality"] ?></option>
+                             <option value="<?php echo $row["doc_id"];?> - <?php echo $row["name"];?>">Speciality - <?php echo $row["speciality"] ?></option>
                         
 															<?php  }  ?>
     </datalist> 
