@@ -30,6 +30,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
+
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -172,6 +173,7 @@ if (isset($_POST['submit'])) {
 							<div class="contact-us-form">
 								<h2>Provide the Credentials</h2>
 								<p>If you have any questions please fell free to contact with us.</p>
+
 								<!-- Form -->
 								<form class="form" method="post" action="">
 									<div class="row">
@@ -198,6 +200,7 @@ if (isset($_POST['submit'])) {
 									</div>
 								</form>
 								<!--/ End Form -->
+
 							</div>
 							<p>Don't Have and Account ? Register <a href="./patient_register.php"><b>HERE</b></a></p>
 						</div>

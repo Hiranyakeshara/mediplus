@@ -1,4 +1,38 @@
 <!DOCTYPE html>
+<?php
+include('./db/config.php');
+session_start();
+
+if (isset($_SESSION['SESSION_USERNAME'])) {
+    // User is logged in
+    $username = $_SESSION['SESSION_USERNAME'];
+
+    
+
+    // Retrieve user id from the database
+    $result = $con->query("SELECT pharma_id FROM pharmacy WHERE username = '$username'");
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $loggedUserId = $row['pharma_id'];
+    } else {
+        // Handle the case when the user is not found in the database
+        echo "Error: User not found in the database.";
+        exit();
+    }
+
+    $con->close();
+} else {
+    // User is not logged in
+    echo "User is not logged in";
+    header("Location: ./index.php");
+    exit();
+}
+
+?>
+
+
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -25,16 +59,18 @@
           require "php/header.php";
           createHeader('user', 'Profile', 'Manage Admin Details');
           // header section end
-          require "php/db_connection.php";
+          include('./db/config.php');
           if($con) {
-            $query = "SELECT * FROM pharmacy";
+            $query = "SELECT * FROM pharmacy WHERE pharma_id = '$loggedUserId'";
             $result = mysqli_query($con, $query);
             $row = mysqli_fetch_array($result);
             $pharmacist_name = $row['fullname'];
             $address = $row['address'];
             $email = $row['email'];
+            $email = $row['qualification'];
             $bio = $row['bio'];
             $username = $row['username'];
+            $username = $row['password'];
           }
         ?>
         <div class="row">

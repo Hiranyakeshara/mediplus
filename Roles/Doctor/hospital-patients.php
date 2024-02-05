@@ -101,13 +101,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 								</a>
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettings">
 									<div class="header-profile-actions">
-										<div class="header-user-profile">
-											<div class="header-user">
-												<img src="img/user11.png" alt="Medical Dashboards" />
-											</div>
-											
-											<p><?php echo $_SESSION['SESSION_USERNAME']; ?></p>
-										</div>
+										
 										<a href="hospital-add-doctor.html"><i class="icon-user1"></i> My Profile</a>
 										<a href="login.html"><i class="icon-log-out1"></i> Sign Out</a>
 									</div>

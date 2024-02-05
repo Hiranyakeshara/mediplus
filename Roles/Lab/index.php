@@ -200,6 +200,7 @@ if ($result->num_rows > 0) {
 
 
 						<div class="row gutters">
+							
 						<form action="./pdf_upload.php" method="post" enctype="multipart/form-data">
 						<div class="col-lg-6 col-sm-12">
 							<div class="card">

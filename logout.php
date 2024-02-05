@@ -8,5 +8,5 @@ session_unset();
 session_destroy();
 
 // Redirect to the login page
-header("Location: ./patient_login.php");
+header("Location: ./index.php");
 ?>

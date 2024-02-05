@@ -15,7 +15,7 @@
     <div class="container">
       <div class="card m-auto p-2">
         <div class="card-body">
-          <form name="login-form" class="login-form" action="home.php" method="post" onsubmit="return validateCredentials();">
+          <form name="login-form" class="login-form" action="./login.php" method="post" >
             <div class="logo">
         			<h1 class="logo-caption"><span class="tweak">Mediplus</span></h1>
               <h3 class="logo-caption"><span class="tweak">Pharmacy Login</span></h3>
@@ -24,16 +24,16 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user text-white"></i></span>
               </div>
-              <input name="username" type="text" class="form-control" placeholder="username" onkeyup="validate();" required>
+              <input name="username" type="text" class="form-control" placeholder="username"  required>
             </div> <!--input-group class -->
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key text-white"></i></span>
               </div>
-              <input name="password" type="password" class="form-control" placeholder="password" onkeyup="validate();" required>
+              <input name="password" type="password" class="form-control" placeholder="password"  required>
             </div> <!-- input-group class -->
             <div class="form-group">
-              <button class="btn btn-primary" >Login</button>
+              <button class="btn btn-primary" name="login" >Login</button>
             </div>
           </form><!-- form close -->
         </div> <!-- cord-body class -->

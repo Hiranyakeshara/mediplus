@@ -105,13 +105,6 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 								</a>
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettings">
 									<div class="header-profile-actions">
-										<div class="header-user-profile">
-											<div class="header-user">
-												<img src="img/user11.png" alt="Medical Dashboards" />
-											</div>
-										
-											<p><?php echo $_SESSION['SESSION_USERNAME']; ?></p>
-										</div>
 										<a href="account-settings.php"><i class="icon-user1"></i> My Profile</a>
 										<a href="logout.php"><i class="icon-log-out1"></i> Sign Out</a>
 									</div>
@@ -193,7 +186,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 					<!-- Row start -->
 					<?php
      include("db/config.php");  
-  	 $sql = "SELECT COUNT(*) AS app_count FROM appointments";
+  	 $sql = "SELECT COUNT(*) AS app_count FROM appointments WHERE doctor = '$loggedUserId'";
 	$result = $con->query($sql);
 
 if ($result->num_rows > 0) {
@@ -228,7 +221,7 @@ if ($result->num_rows > 0) {
 						<div class="col-lg-2 col-sm-4 col-12">
 							<div class="hospital-tiles">
 								<img src="img/hospital/patient.svg" alt="Best Dashboards" />
-								<p>My Patients</p>
+								<p>Patients</p>
 								<h2><?php echo $patientCount; ?></h2>
 							</div>
 						</div>
@@ -250,7 +243,7 @@ if ($result->num_rows > 0) {
 						<div class="col-lg-2 col-sm-4 col-12">
 							<div class="hospital-tiles">
 								<img src="img/hospital/doctor.svg" alt="Top Dashboards" />
-								<p>Doctors in My Specilization</p>
+								<p>Total Doctors</p>
 								<h2><?php echo $doctorCount; ?></h2>
 							</div>
 </div>
