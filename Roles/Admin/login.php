@@ -79,7 +79,7 @@ if (isset($_POST['submit'])) {
 								<div class="actions">
 									<button type="submit" name="submit" class="btn btn-info">Login</button>
 								</div>
-								<p>Press <a href=""><b>HERE</b></a> to go back</p>
+								<p>Press <a href="http://localhost/mediplus/loginportal.php"><b>HERE</b></a> to go back</p>
 								<hr>
 							</div>
 						</div>

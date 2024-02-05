@@ -35,6 +35,7 @@
             <div class="form-group">
               <button class="btn btn-primary" name="login" >Login</button>
             </div>
+            <p>Press <a href="http://localhost/mediplus/loginportal.php"><b>HERE</b></a> to go back</p>
           </form><!-- form close -->
         </div> <!-- cord-body class -->
 
