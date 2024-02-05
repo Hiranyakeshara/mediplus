@@ -128,7 +128,7 @@ if (isset($_SESSION['SESSION_USERNAME'])) {
 				<div class="collapse navbar-collapse" id="royalHospitalsNavbar">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active-page" href="index.html">
+							<a class="nav-link active-page" href="index.php">
 								<i class="icon-devices_other nav-icon"></i>
 								Dashboard
 							</a>
